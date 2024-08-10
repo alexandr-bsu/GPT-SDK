@@ -1,5 +1,5 @@
-from src.serializable import Serializable
-from src.utils.merge import merge_lists, merge_dicts
+from sdk.serializable import Serializable
+from sdk.utils.merge import merge_lists, merge_dicts
 
 from typing import Dict, List, Optional, Sequence, Union
 

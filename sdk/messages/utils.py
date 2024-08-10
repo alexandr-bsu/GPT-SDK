@@ -1,8 +1,8 @@
 from typing import Union, Sequence
-from src.messages.system import SystemMessage
-from src.messages.chat import ChatMessage
-from src.messages.human import HumanMessage
-from src.messages.base import BaseMessage
+from sdk.messages.system import SystemMessage
+from sdk.messages.chat import ChatMessage
+from sdk.messages.human import HumanMessage
+from sdk.messages.base import BaseMessage
 
 # TODO: Add Tool, Function and AI Messages
 AnyMessage = Union[

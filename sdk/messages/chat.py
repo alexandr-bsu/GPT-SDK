@@ -1,6 +1,6 @@
 from typing import List, Literal
-from src.messages.base import BaseMessage, BaseChunkMessage, merge_content
-from src.utils.merge import merge_dicts
+from sdk.messages.base import BaseMessage, BaseChunkMessage, merge_content
+from sdk.utils.merge import merge_dicts
 
 
 class ChatMessage(BaseMessage):

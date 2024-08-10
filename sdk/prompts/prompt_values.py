@@ -1,8 +1,8 @@
 from abc import ABC, abstractmethod
 from typing import List, Literal, Sequence, cast
 
-from src.serializable import Serializable
-from src.messages.utils import (
+from sdk.serializable import Serializable
+from sdk.messages.utils import (
     AnyMessage,
     BaseMessage,
     HumanMessage,

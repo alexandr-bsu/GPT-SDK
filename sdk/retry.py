@@ -10,7 +10,7 @@ from tenacity import (
     wait_exponential,
 )
 
-from src.exceptions import YandexException
+from sdk.exceptions import YandexException
 
 logging.basicConfig(stream=sys.stderr, level=logging.DEBUG)
 logger = logging.getLogger(__name__)

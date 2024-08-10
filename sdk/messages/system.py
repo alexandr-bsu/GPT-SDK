@@ -1,5 +1,5 @@
 from typing import List, Literal
-from src.messages.base import BaseMessage, BaseChunkMessage
+from sdk.messages.base import BaseMessage, BaseChunkMessage
 
 
 class SystemMessage(BaseMessage):
