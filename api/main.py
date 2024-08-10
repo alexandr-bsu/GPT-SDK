@@ -22,4 +22,5 @@ def invoke_gpt(task: BaseGptTask):
     result = model.invoke(messages)
     return {'result': result}
 
-uvicorn.run(app, port=8000)
+
+uvicorn.run(app, host='0.0.0.0', port=3125)
