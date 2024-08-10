@@ -122,7 +122,7 @@ class Serializable(BaseModel, ABC):
         """
         return [*cls.get_namespace(), cls.__name__]
 
-    @model_serializer
+    # @model_serializer
     def to_json(self) -> Dict[str, Any]:
         """Serialize the object to JSON.
         :return serialized JSON object"""
@@ -241,18 +241,3 @@ def to_json_not_implemented(obj: Optional[object] = None) -> SerializedNotImplem
     return result
 
 
-# class Test(Serializable):
-#     test: int
-#     yandex_api_key: str
-#
-#     @classmethod
-#     def is_serializable(cls) -> bool:
-#         return True
-#
-#     @property
-#     def secrets(self) -> Dict[str, str]:
-#         return {"yandex_api_key": "YANDEX_API_KEY"}
-#
-#
-# test = Test(test=1, yandex_api_key='q1')
-# print(test.to_json())
