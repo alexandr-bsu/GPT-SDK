@@ -2,6 +2,7 @@ from typing import List, Any, Literal, Dict
 from enum import Enum
 import requests
 
+from sdk.retry import retry_n_times
 from sdk.llm.yandex.settings import YandexAuth
 from pydantic import BaseModel
 
@@ -49,6 +50,7 @@ class YandexGPT:
         msgs_dump = [m.model_dump() for m in messages]
         return self._generate_messages(msgs_dump)
 
+    @retry_n_times(4)
     def _generate_messages(self,
                            prompts: List[Dict[str, str]],
                            **kwargs: Any,

@@ -1,2 +1,2 @@
-class YandexException(Exception):
+class SdkException(Exception):
     ...
