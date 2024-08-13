@@ -66,4 +66,5 @@ class YandexGPT:
 
         headers = self.auth.headers
         llm_response = requests.post(self.base_url, headers=headers, json=req)
-        return llm_response.json()['result']['alternatives'][0]['message']['text']
+        text = llm_response.json()
+        return text['result']['alternatives'][0]['message']['text']
