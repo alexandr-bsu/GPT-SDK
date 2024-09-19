@@ -3,7 +3,7 @@ import json
 from fastapi import FastAPI
 import uvicorn
 
-from api.prompts import prompt_with_date
+from api.prompts import prompt_with_date, prompt_with_baserow_id
 
 from sdk.messages.human import HumanMessage
 from sdk.messages.system import SystemMessage
@@ -25,6 +25,26 @@ def get_action_info_gpt(user_prompt: str):
 
     messages = [
         SystemMessage(content=prompt_with_date),
+        HumanMessage(content=user_prompt)
+    ]
+    result = model.invoke(messages).replace('`', '').replace("'", '"')
+
+    try:
+        result = json.loads(result)
+        return result
+
+    except json.JSONDecodeError:
+        return {'error': 'Непредвиденная ошибка. Попробуйте написать запрос иначе'}
+
+
+@app.get('/action-info-with-bid')
+def get_action_info_gpt_with_bid(user_prompt: str):
+    """Get action info from gpt response with baserow-id"""
+
+    model = YandexChatGPT()
+
+    messages = [
+        SystemMessage(content=prompt_with_baserow_id),
         HumanMessage(content=user_prompt)
     ]
     result = model.invoke(messages).replace('`', '').replace("'", '"')
